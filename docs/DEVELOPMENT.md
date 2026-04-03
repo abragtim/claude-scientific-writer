@@ -19,8 +19,8 @@ scientific_writer/
 ### Plugin Structure
 
 ```
-claude-scientific-writer/
-├── .claude-plugin/          # Plugin metadata
+gemini-scientific-writer/
+├── .gemini-plugin/          # Plugin metadata
 │   └── plugin.json
 ├── commands/                # Plugin commands
 │   └── scientific-writer-init.md
@@ -29,8 +29,8 @@ claude-scientific-writer/
 │   ├── clinical-reports/
 │   ├── research-lookup/
 │   └── ... (16+ more)
-├── templates/               # CLAUDE.md template
-│   └── CLAUDE.scientific-writer.md
+├── templates/               # GEMINI.md template
+│   └── GEMINI.scientific-writer.md
 └── scientific_writer/       # Python package
 ```
 
@@ -41,7 +41,7 @@ claude-scientific-writer/
 - `core`: Shared logic for API key retrieval, instruction loading, output management, data handling
 - `models`: Typed dataclasses for API responses
 - `utils`: File scanning, paper detection, and helpers
-- **Plugin System**: Commands, skills, and templates for Claude Code integration
+- **Plugin System**: Commands, skills, and templates for Gemini CLI integration
 
 ## Data Models
 
@@ -98,7 +98,7 @@ For local plugin development and testing:
 1. **Create test marketplace** (see `TESTING_INSTRUCTIONS.md`):
    ```bash
    cd ..
-   mkdir -p test-marketplace/.claude-plugin
+   mkdir -p test-marketplace/.gemini-plugin
    ```
 
 2. **Configure marketplace** with relative path to your local plugin:
@@ -106,20 +106,20 @@ For local plugin development and testing:
    {
      "name": "test-marketplace",
      "plugins": [{
-       "name": "claude-scientific-writer",
-       "source": "../claude-scientific-writer"
+       "name": "gemini-scientific-writer",
+       "source": "../gemini-scientific-writer"
      }]
    }
    ```
 
-3. **Add marketplace in Claude Code**:
+3. **Add marketplace in Gemini CLI**:
    ```
    /plugin marketplace add ../test-marketplace
    ```
 
 4. **Install plugin**:
    ```
-   /plugin install claude-scientific-writer@test-marketplace
+   /plugin install gemini-scientific-writer@test-marketplace
    ```
 
 5. **Test in a project**:
@@ -129,10 +129,10 @@ For local plugin development and testing:
 
 ### Plugin Structure Requirements
 
-- **`.claude-plugin/plugin.json`** - Plugin metadata
+- **`.gemini-plugin/plugin.json`** - Plugin metadata
 - **`commands/`** - Command definitions (YAML frontmatter required)
 - **`skills/`** - Skill definitions (each with SKILL.md + YAML frontmatter)
-- **`templates/`** - Template files (CLAUDE.scientific-writer.md)
+- **`templates/`** - Template files (GEMINI.scientific-writer.md)
 
 ### Adding New Skills
 
@@ -152,7 +152,7 @@ For local plugin development and testing:
 
 v2.7.0 highlights:
 
-- **Claude Code Plugin Focus** - Optimized for IDE integration
+- **Gemini CLI Plugin Focus** - Optimized for IDE integration
 - Plugin installation with `/scientific-writer:init`
 - All 19+ skills accessible via plugin
 - Streamlined IDE workflow
@@ -183,7 +183,7 @@ from scientific_writer import generate_paper
 ### CLI/API -> Plugin (v2.7.0)
 
 For best IDE experience:
-- Install as Claude Code plugin (recommended)
+- Install as Gemini CLI plugin (recommended)
 - Use `/scientific-writer:init` in your project
 - Access all skills directly in IDE
 - No CLI required for most workflows
@@ -205,6 +205,6 @@ For best IDE experience:
 - `Docs/TROUBLESHOOTING.md` — troubleshooting
 - `Docs/SKILLS.md` — skills overview
 - `CHANGELOG.md` — release history
-- `CLAUDE.md` — system instructions (kept at root)
+- `GEMINI.md` — system instructions (kept at root)
 
 

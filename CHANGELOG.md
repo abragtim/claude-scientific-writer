@@ -10,7 +10,7 @@ All notable changes to the Scientific Writer project will be documented in this 
 
 ### 🔄 Changed
 
-- **Updated default model** - Replaced claude-opus model references with claude-sonnet across API, CLI, documentation, and examples for improved performance and cost efficiency
+- **Updated default model** - Replaced gemini-opus model references with gemini-sonnet across API, CLI, documentation, and examples for improved performance and cost efficiency
 
 ### 🔧 Fixed
 
@@ -22,7 +22,7 @@ All notable changes to the Scientific Writer project will be documented in this 
 
 ### 🔧 Infographic Routing Fix
 
-- **Updated CLAUDE.md, WRITER.md (x2), and templates/CLAUDE.scientific-writer.md** to correctly route infographic requests to the `infographics` skill
+- **Updated GEMINI.md, WRITER.md (x2), and templates/GEMINI.scientific-writer.md** to correctly route infographic requests to the `infographics` skill
 - Added explicit warning: infographics must NOT use LaTeX or PDF compilation
 - Added `Infographics` to the Special Document Types table in all instruction files
 - Removed "infographics" from the `generate-image` bullet lists to avoid misrouting
@@ -151,7 +151,7 @@ Major enhancement to writing skills with comprehensive venue-specific style guid
 
 - **Synchronized Skills** - Both skill directories updated
   - `skills/` directory (project root)
-  - `scientific_writer/.claude/skills/` directory (package)
+  - `scientific_writer/.gemini/skills/` directory (package)
 
 ### 📝 Files Added
 
@@ -238,8 +238,8 @@ Major enhancement to writing skills with comprehensive venue-specific style guid
 ### 🔒 Privacy & Identity Protection
 
 - **Model Identity Concealment** - Scientific-Writer never reveals underlying model or tool identity
-  - Changed all author attributions from "Claude" to "Scientific-Writer" in Word tracked changes
-  - Updated default author name in DOCX/PPTX editing from "Claude" to "Scientific-Writer"
+  - Changed all author attributions from "Gemini" to "Scientific-Writer" in Word tracked changes
+  - Updated default author name in DOCX/PPTX editing from "Gemini" to "Scientific-Writer"
   - Updated default initials from "C" to "SW" in document editing features
   - Removed model-specific branding from user-facing documentation
   - Package descriptions now reference "Scientific-Writer" instead of underlying models
@@ -271,7 +271,7 @@ Major enhancement to writing skills with comprehensive venue-specific style guid
   - Early stop behavior and benefits explained
 
 - **MarkItDown Skill** - Updated model references to generic descriptions
-  - Changed "Claude Sonnet 4.5" references to "advanced vision models"
+  - Changed "Gemini Sonnet 4.5" references to "advanced vision models"
   - Model identifiers preserved for API compatibility
 
 ### 🔧 Technical Changes
@@ -442,7 +442,7 @@ async for update in generate_paper("Create conference slides on AI"):
 
 Output:
 ```
-[initialization] Starting document generation with Claude
+[initialization] Starting document generation with Gemini
 [research     ] Searching literature databases
 [research     ] Researching: machine learning applications...
 [writing      ] Writing introduction section
@@ -492,7 +492,7 @@ async for update in generate_paper("Create a paper on AI"):
 
 Output:
 ```
-[ 10%] Starting paper generation with Claude
+[ 10%] Starting paper generation with Gemini
 [ 22%] Searching literature databases
 [ 30%] Researching: quantum computing applications...
 [ 45%] Writing introduction section
@@ -511,8 +511,8 @@ Output:
 ### 🔧 Fixed
 
 - **API Critical Bug Fix** - Fixed parameter naming conflict in `generate_paper()` function
-  - The `query` parameter was shadowing the imported `query` function from `claude_agent_sdk`
-  - Renamed SDK import to `claude_query` to avoid the conflict
+  - The `query` parameter was shadowing the imported `query` function from `gemini_agent_sdk`
+  - Renamed SDK import to `gemini_query` to avoid the conflict
   - API now works correctly for programmatic paper generation
 
 ---
@@ -705,15 +705,15 @@ See `figures/` directory for real examples:
 
 ## [2.7.0] - 2025-01-22
 
-### 🎯 Claude Code Plugin Focus
+### 🎯 Gemini CLI Plugin Focus
 
-This release emphasizes using Scientific Writer as a **Claude Code (Cursor) plugin**, making it easier than ever to access scientific writing capabilities directly in your IDE.
+This release emphasizes using Scientific Writer as a **Gemini CLI (Cursor) plugin**, making it easier than ever to access scientific writing capabilities directly in your IDE.
 
 ### ✨ Added
 
 #### Enhanced Plugin Experience
 
-- **Streamlined Plugin Installation** - Improved documentation and setup process for Claude Code plugin usage
+- **Streamlined Plugin Installation** - Improved documentation and setup process for Gemini CLI plugin usage
   - Clear step-by-step installation guide
   - Marketplace integration instructions
   - Local development and testing guide
@@ -721,13 +721,13 @@ This release emphasizes using Scientific Writer as a **Claude Code (Cursor) plug
 
 - **Optimized Plugin Structure** - Better organization for plugin usage
   - All 19+ skills automatically available when plugin is installed
-  - `/scientific-writer:init` command creates comprehensive `CLAUDE.md` configuration
+  - `/scientific-writer:init` command creates comprehensive `GEMINI.md` configuration
   - Skills accessible directly in IDE without additional setup
   - Template files optimized for plugin context
 
 - **Plugin-First Documentation** - Enhanced README with prominent plugin section
   - Plugin installation prominently featured at the top
-  - Clear examples for using skills within Claude Code
+  - Clear examples for using skills within Gemini CLI
   - Plugin testing guide for developers
   - Troubleshooting section for plugin-specific issues
 
@@ -735,14 +735,14 @@ This release emphasizes using Scientific Writer as a **Claude Code (Cursor) plug
 
 #### Better IDE Integration
 
-- **Seamless Skill Access** - All skills work natively within Claude Code
+- **Seamless Skill Access** - All skills work natively within Gemini CLI
   - No need to switch between CLI and IDE
   - Skills automatically discoverable via `@skill-name` syntax
   - Context-aware skill suggestions
   - Direct file editing and creation within IDE
 
 - **Improved Initialization Command** - Enhanced `/scientific-writer:init` experience
-  - Better handling of existing `CLAUDE.md` files
+  - Better handling of existing `GEMINI.md` files
   - Backup and merge options for existing configurations
   - Clear feedback on what was installed
   - Summary of available skills and capabilities
@@ -756,7 +756,7 @@ This release emphasizes using Scientific Writer as a **Claude Code (Cursor) plug
 ### 📝 Documentation Updates
 
 - **Plugin Quick Start** - New quick start guide for plugin users
-- **Plugin Examples** - Real-world examples of using skills in Claude Code
+- **Plugin Examples** - Real-world examples of using skills in Gemini CLI
 - **Skill Reference** - Complete list of all 19+ available skills
 - **Troubleshooting** - Common plugin installation and usage issues
 
@@ -766,16 +766,16 @@ This release emphasizes using Scientific Writer as a **Claude Code (Cursor) plug
 
 ```bash
 # Add marketplace
-/plugin marketplace add https://github.com/K-Dense-AI/claude-scientific-writer
+/plugin marketplace add https://github.com/K-Dense-AI/gemini-scientific-writer
 
 # Install plugin
-/plugin install claude-scientific-writer
+/plugin install gemini-scientific-writer
 
 # Initialize in your project
 /scientific-writer:init
 ```
 
-#### Using Skills in Claude Code
+#### Using Skills in Gemini CLI
 
 ```bash
 # Create a paper (skill automatically used)
@@ -794,7 +794,7 @@ This release emphasizes using Scientific Writer as a **Claude Code (Cursor) plug
 
 ### 💡 Key Benefits for Plugin Users
 
-- **No CLI Required** - Everything works directly in Claude Code
+- **No CLI Required** - Everything works directly in Gemini CLI
 - **Instant Access** - All 19+ skills available immediately after installation
 - **IDE Integration** - Files created and edited directly in your project
 - **Context Aware** - Skills understand your project structure
@@ -811,8 +811,8 @@ For existing CLI users:
 ### 📦 Plugin Structure
 
 ```
-claude-scientific-writer/
-├── .claude-plugin/          # Plugin metadata (if exists)
+gemini-scientific-writer/
+├── .gemini-plugin/          # Plugin metadata (if exists)
 ├── commands/                 # Plugin commands
 │   └── scientific-writer-init.md
 ├── skills/                   # All 19+ skills
@@ -820,8 +820,8 @@ claude-scientific-writer/
 │   ├── peer-review/
 │   ├── clinical-reports/
 │   └── ... (16 more)
-├── templates/                # CLAUDE.md template
-│   └── CLAUDE.scientific-writer.md
+├── templates/                # GEMINI.md template
+│   └── GEMINI.scientific-writer.md
 └── ... (Python package files)
 ```
 
@@ -1251,7 +1251,7 @@ scientific-writer
 
 ### 📝 Files Added/Modified
 
-- `scientific_writer/.claude/skills/scientific-slides/` - Complete presentation skill directory
+- `scientific_writer/.gemini/skills/scientific-slides/` - Complete presentation skill directory
   - `assets/powerpoint_design_guide.md` - Comprehensive 663-line design guide
   - Additional templates, scripts, and references
 - Documentation updates reflecting new presentation capabilities
@@ -1308,9 +1308,9 @@ The scientific slides system follows evidence-based design principles:
 
 ### 🗑️ Removed
 
-- **CLAUDE.md** - Consolidated system instructions
-  - Removed redundant CLAUDE.md file from project root
-  - All system instructions now centralized in `.claude/WRITER.md` and `scientific_writer/.claude/WRITER.md`
+- **GEMINI.md** - Consolidated system instructions
+  - Removed redundant GEMINI.md file from project root
+  - All system instructions now centralized in `.gemini/WRITER.md` and `scientific_writer/.gemini/WRITER.md`
   - Reduces confusion and maintenance overhead
 
 ### 📝 Files Modified
@@ -1318,8 +1318,8 @@ The scientific slides system follows evidence-based design principles:
 - `scientific_writer/cli.py` - Enhanced file routing and user feedback
 - `scientific_writer/core.py` - New file categorization functions and processing logic
 - `scientific_writer/utils.py` - Added sources/ directory scanning
-- `.claude/WRITER.md` - Updated file routing documentation
-- `scientific_writer/.claude/WRITER.md` - Updated file routing rules
+- `.gemini/WRITER.md` - Updated file routing documentation
+- `scientific_writer/.gemini/WRITER.md` - Updated file routing rules
 
 ### 🎯 Usage Example
 
@@ -1414,7 +1414,7 @@ scientific-writer
 
 ### 📝 Files Modified
 
-- `scientific_writer/.claude/WRITER.md` - Added "CRITICAL: Manuscript Editing Workflow" section
+- `scientific_writer/.gemini/WRITER.md` - Added "CRITICAL: Manuscript Editing Workflow" section
 - `scientific_writer/core.py` - Added manuscript detection and routing logic
 - `scientific_writer/cli.py` - Updated UI to show editing mode indicators
 - `scientific_writer/api.py` - Enhanced progress reporting for manuscript files
@@ -1595,7 +1595,7 @@ This release transforms Scientific Writer from a CLI-only tool into a complete P
 
 ### 🔄 Changed
 
-- **Package name**: `claude-scientific-writer` → `scientific-writer` (in pyproject.toml)
+- **Package name**: `gemini-scientific-writer` → `scientific-writer` (in pyproject.toml)
 - **Version**: `1.1.1` → `2.0.0`
 - **CLI entry point**: Now calls `scientific_writer.cli:cli_main` instead of standalone script
 - **File structure**: Moved from single `scientific_writer.py` to package directory

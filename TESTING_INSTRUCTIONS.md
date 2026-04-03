@@ -1,4 +1,4 @@
-# Testing the Claude Code Plugin
+# Testing the Gemini CLI Plugin
 
 ## ✅ Setup Complete
 
@@ -16,7 +16,7 @@ A test project has been created at:
 
 ### Step 1: Add the Test Marketplace
 
-In Claude Code (this chat), run:
+In Gemini CLI (this chat), run:
 
 ```
 /plugin marketplace add /Users/vinayak/Documents/test-marketplace
@@ -30,23 +30,23 @@ Expected output: Confirmation that the marketplace was added.
 /plugin marketplace list
 ```
 
-Expected output: Should show `claude-scientific-writer` in the test-marketplace.
+Expected output: Should show `gemini-scientific-writer` in the test-marketplace.
 
 ### Step 3: Install the Plugin
 
 ```
-/plugin install claude-scientific-writer@test-marketplace
+/plugin install gemini-scientific-writer@test-marketplace
 ```
 
 Expected output: Plugin installation confirmation, possibly a prompt to restart.
 
-### Step 4: Restart Claude Code (if prompted)
+### Step 4: Restart Gemini CLI (if prompted)
 
-If Claude Code asks you to restart, do so now.
+If Gemini CLI asks you to restart, do so now.
 
 ### Step 5: Open the Test Project
 
-Open the test project directory in Claude Code:
+Open the test project directory in Gemini CLI:
 ```
 /Users/vinayak/Documents/test-plugin-project/
 ```
@@ -62,14 +62,14 @@ In the test project, run:
 ```
 
 Expected behavior:
-- Should check for existing CLAUDE.md (there isn't one)
-- Should create a new CLAUDE.md file
+- Should check for existing GEMINI.md (there isn't one)
+- Should create a new GEMINI.md file
 - Should display a comprehensive onboarding message
-- The CLAUDE.md file should appear in the test project directory
+- The GEMINI.md file should appear in the test project directory
 
 ### Step 7: Verify Skills Are Available
 
-Ask Claude:
+Ask Gemini:
 
 ```
 What skills are available?
@@ -93,15 +93,15 @@ Create a short scientific abstract (150 words) on quantum computing applications
 ```
 
 Expected behavior:
-- Claude should use the scientific-writing skill
+- Gemini should use the scientific-writing skill
 - Should create a properly formatted abstract
 - May use research-lookup if configured
 
-### Step 9: Verify CLAUDE.md Content
+### Step 9: Verify GEMINI.md Content
 
-Open the created CLAUDE.md file and verify:
-- [ ] File exists at `/Users/vinayak/Documents/test-plugin-project/CLAUDE.md`
-- [ ] Contains "Claude Agent System Instructions" header
+Open the created GEMINI.md file and verify:
+- [ ] File exists at `/Users/vinayak/Documents/test-plugin-project/GEMINI.md`
+- [ ] Contains "Gemini Agent System Instructions" header
 - [ ] Has the plugin comment at the top
 - [ ] Contains comprehensive scientific writing instructions
 - [ ] Includes workflow protocols, citation policies, etc.
@@ -124,11 +124,11 @@ If skills aren't available:
 If `/scientific-writer:init` doesn't work:
 1. Check that `commands/scientific-writer-init.md` exists
 2. Verify the YAML frontmatter in the command file
-3. Check that `templates/CLAUDE.scientific-writer.md` exists
+3. Check that `templates/GEMINI.scientific-writer.md` exists
 
 ### Template Not Found
 If init command can't find the template:
-1. Verify `/Users/vinayak/Documents/claude-scientific-writer/templates/CLAUDE.scientific-writer.md` exists
+1. Verify `/Users/vinayak/Documents/gemini-scientific-writer/templates/GEMINI.scientific-writer.md` exists
 2. Check file permissions
 3. Try using absolute path in the plugin
 
@@ -140,7 +140,7 @@ After completing all steps:
 - [ ] Plugin visible in marketplace list
 - [ ] Plugin installed without errors
 - [ ] `/scientific-writer:init` command executed successfully
-- [ ] CLAUDE.md created in test project
+- [ ] GEMINI.md created in test project
 - [ ] Skills query returns scientific writing skills
 - [ ] Can create a simple scientific document
 - [ ] Plugin works as expected
@@ -150,22 +150,22 @@ After completing all steps:
 The plugin is working correctly if:
 
 1. **Installation succeeds** - No errors during marketplace add or plugin install
-2. **Command works** - `/scientific-writer:init` creates CLAUDE.md
+2. **Command works** - `/scientific-writer:init` creates GEMINI.md
 3. **Skills available** - "What skills are available?" shows 19 skills
 4. **Functional** - Can create scientific content using the skills
-5. **Template correct** - CLAUDE.md contains full scientific writing instructions
+5. **Template correct** - GEMINI.md contains full scientific writing instructions
 
 ## 📝 Notes
 
-- The `.claude/` directory in the plugin repo is for development only
+- The `.gemini/` directory in the plugin repo is for development only
 - The plugin uses `skills/`, `commands/`, and `templates/` directories
-- Users can customize their CLAUDE.md after initialization
+- Users can customize their GEMINI.md after initialization
 - Skills are available project-wide once plugin is installed
 
 ## 🚀 Next Steps After Successful Test
 
 If everything works:
-1. Update version in `.claude-plugin/plugin.json` if needed
+1. Update version in `.gemini-plugin/plugin.json` if needed
 2. Commit and push changes to GitHub
 3. Consider publishing to a public marketplace
 4. Update documentation with real-world usage examples

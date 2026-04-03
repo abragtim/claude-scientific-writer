@@ -12,8 +12,8 @@ from pathlib import Path
 from typing import Optional
 from dotenv import load_dotenv
 
-from claude_agent_sdk import query, ClaudeAgentOptions
-from claude_agent_sdk.types import HookMatcher, StopHookInput, HookContext
+from gemini_agent_sdk import query, GeminiAgentOptions
+from gemini_agent_sdk.types import HookMatcher, StopHookInput, HookContext
 
 from .core import (
     get_api_key,
@@ -22,7 +22,7 @@ from .core import (
     get_data_files,
     process_data_files,
     create_data_context_message,
-    setup_claude_skills,
+    setup_gemini_skills,
 )
 from .utils import find_existing_papers, detect_paper_reference, scan_paper_directory
 from .models import TokenUsage
@@ -86,13 +86,13 @@ async def main(track_token_usage: bool = False) -> Optional[TokenUsage]:
     cwd = Path.cwd().resolve()  # User's current working directory (absolute path)
     package_dir = Path(__file__).parent.absolute()  # Package installation directory (scientific_writer/)
     
-    # Set up Claude skills in the working directory (includes WRITER.md)
-    setup_claude_skills(package_dir, cwd)
+    # Set up Gemini skills in the working directory (includes WRITER.md)
+    setup_gemini_skills(package_dir, cwd)
     
     # Ensure writing_outputs folder exists in user's directory
     output_folder = ensure_output_folder(cwd)
     
-    # Load system instructions from .claude/WRITER.md in working directory
+    # Load system instructions from .gemini/WRITER.md in working directory
     system_instructions = load_system_instructions(cwd)
     
     # Add conversation continuity instruction  
@@ -118,12 +118,12 @@ IMPORTANT - CONVERSATION CONTINUITY:
     auto_continue = os.environ.get("SCIENTIFIC_WRITER_AUTO_CONTINUE", "true").lower() in ("true", "1", "yes")
     
     # Configure agent options with stop hook for completion checking
-    options = ClaudeAgentOptions(
+    options = GeminiAgentOptions(
         system_prompt=system_instructions,
-        model="claude-sonnet-4-6",
+        model="gemini-sonnet-4-6",
         allowed_tools=["Read", "Write", "Edit", "Bash", "WebSearch", "research-lookup"],
         permission_mode="bypassPermissions",  # Execute immediately without approval prompts
-        setting_sources=["project"],  # Load skills from project .claude directory
+        setting_sources=["project"],  # Load skills from project .gemini directory
         cwd=str(cwd),  # Set working directory to user's current directory
         max_turns=500,  # Allow many turns for long document generation
         hooks={

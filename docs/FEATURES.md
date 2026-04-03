@@ -185,7 +185,7 @@ echo "OPENROUTER_API_KEY=your_key" >> .env
 **Automatic Usage:**
 The research lookup is automatically invoked when:
 - You request recent research (e.g., "papers from 2024")
-- Claude needs to verify facts or statistics
+- Gemini needs to verify facts or statistics
 - Literature search is needed
 - Current events or recent developments are mentioned
 
@@ -325,8 +325,8 @@ Simply drop files into the `data/` folder at the project root.
 **Example Workflow:**
 ```bash
 # 1. Copy your files
-cp experiment_results.csv ~/Documents/claude-scientific-writer/data/
-cp performance_graph.png ~/Documents/claude-scientific-writer/data/
+cp experiment_results.csv ~/Documents/gemini-scientific-writer/data/
+cp performance_graph.png ~/Documents/gemini-scientific-writer/data/
 
 # 2. Start the CLI
 scientific-writer
@@ -360,7 +360,7 @@ async for update in generate_paper(
 
 All included files are:
 - Copied to appropriate directories
-- Made available as context to Claude
+- Made available as context to Gemini
 - Can be referenced in the paper
 - Listed in the data files message
 
@@ -435,7 +435,7 @@ async def generate_paper(
     query: str,
     output_dir: Optional[str] = None,
     api_key: Optional[str] = None,
-    model: str = "claude-sonnet-4-6",
+    model: str = "gemini-sonnet-4-6",
     data_files: Optional[List[str]] = None,
     cwd: Optional[str] = None,
 ) -> AsyncGenerator[Dict[str, Any], None]
@@ -522,7 +522,7 @@ async for update in generate_paper(
     query="Create a paper",
     output_dir="./my_custom_directory",
     api_key="sk-ant-custom-key",
-    model="claude-sonnet-4-6",
+    model="gemini-sonnet-4-6",
     data_files=["data.csv"],
     cwd="/path/to/project"
 ):

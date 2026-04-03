@@ -15,7 +15,7 @@ Start here to get up and running quickly:
 1. **[Main README](../README.md)** - Quick start, installation, and basic usage
 2. **[Complete Features Guide](FEATURES.md)** - Comprehensive overview of all capabilities
 3. **[Skills Overview](SKILLS.md)** - Available skills and what they can do
-4. **[Plugin Installation](../README.md#-use-as-a-claude-code-plugin-recommended)** - Claude Code plugin setup (recommended)
+4. **[Plugin Installation](../README.md#-use-as-a-gemini-code-plugin-recommended)** - Gemini CLI plugin setup (recommended)
 
 ### For Developers
 
@@ -36,11 +36,11 @@ Having issues? Check these resources:
 
 Scientific Writer can be used in three ways:
 
-1. **🌟 Claude Code Plugin (Recommended)** - Use directly in your IDE
+1. **🌟 Gemini CLI Plugin (Recommended)** - Use directly in your IDE
    - One-command setup: `/scientific-writer:init`
    - All 19+ skills available immediately
    - No CLI required
-   - See: [Plugin Installation Guide](../README.md#-use-as-a-claude-code-plugin-recommended)
+   - See: [Plugin Installation Guide](../README.md#-use-as-a-gemini-code-plugin-recommended)
 
 2. **💻 Command Line Interface (CLI)** - Interactive scientific writing
    - Run: `scientific-writer` or `uv run scientific-writer`
@@ -140,7 +140,7 @@ Scientific Writer can be used in three ways:
 
 ### Advanced
 
-9. **[CLAUDE.md](../CLAUDE.md)** - System instructions for the agent
+9. **[GEMINI.md](../GEMINI.md)** - System instructions for the agent
    - Agent behavior guidelines
    - Skill integration
    - Tool usage patterns

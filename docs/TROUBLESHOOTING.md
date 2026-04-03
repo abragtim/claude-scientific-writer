@@ -1,9 +1,9 @@
 # Troubleshooting Guide
 
-This document provides solutions to common issues you may encounter when using the Claude Scientific Writer.
+This document provides solutions to common issues you may encounter when using the Gemini Scientific Writer.
 
 ## Table of Contents
-- [Windows: Claude Code Not Found Error](#windows-claude-code-not-found-error)
+- [Windows: Gemini CLI Not Found Error](#windows-gemini-code-not-found-error)
 - [API Key Issues](#api-key-issues)
 - [Installation Problems](#installation-problems)
 - [LaTeX Compilation Issues](#latex-compilation-issues)
@@ -11,35 +11,35 @@ This document provides solutions to common issues you may encounter when using t
 
 ---
 
-## Windows: Claude Code Not Found Error
+## Windows: Gemini CLI Not Found Error
 
 ### Problem
 When running the scientific writer on Windows, you may encounter this error:
 ```
-Error: Claude Code not found at: C:\Users\<username>\AppData\Roaming\npm\claude.CMD Please try again or type 'exit' to quit.
+Error: Gemini CLI not found at: C:\Users\<username>\AppData\Roaming\npm\gemini.CMD Please try again or type 'exit' to quit.
 ```
 
-Even if `claude.CMD` exists at the specified path and works when called directly, the `claude-agent-sdk` may fail to locate or execute it properly.
+Even if `gemini.CMD` exists at the specified path and works when called directly, the `gemini-agent-sdk` may fail to locate or execute it properly.
 
 ### Solutions
 
-#### 1. Verify Claude Code CLI Installation
-First, test if Claude Code works directly from your command prompt:
+#### 1. Verify Gemini CLI CLI Installation
+First, test if Gemini CLI works directly from your command prompt:
 ```cmd
-claude
+gemini
 ```
 
-If this doesn't work, reinstall the Claude Code CLI:
+If this doesn't work, reinstall the Gemini CLI CLI:
 ```cmd
-npm uninstall -g @anthropic-ai/claude-code
-npm install -g @anthropic-ai/claude-code
+npm uninstall -g @anthropic-ai/gemini-code
+npm install -g @anthropic-ai/gemini-code
 ```
 
 #### 2. Check PATH Configuration
 Verify that npm's global bin directory is in your system PATH:
 
 ```cmd
-where claude
+where gemini
 echo %PATH%
 ```
 
@@ -74,13 +74,13 @@ If the above steps don't resolve the issue, consider using [WSL](https://learn.m
 wsl --install
 ```
 
-Then install Node.js and the scientific writer within your WSL environment, where the Claude Code CLI typically has fewer compatibility issues.
+Then install Node.js and the scientific writer within your WSL environment, where the Gemini CLI CLI typically has fewer compatibility issues.
 
 #### 7. Try Using npx Directly
-If Claude Code works from the command line but the SDK can't find it, try using `npx` to run it:
+If Gemini CLI works from the command line but the SDK can't find it, try using `npx` to run it:
 
 ```cmd
-npx @anthropic-ai/claude-code --version
+npx @anthropic-ai/gemini-code --version
 ```
 
 If this works, you might have a PATH resolution issue specific to how Python/the SDK spawns processes.
@@ -110,13 +110,13 @@ Then run the scientific writer from within this virtual environment.
 ### Known Issue: SDK Compatibility on Windows (No Admin Rights)
 
 **If you've confirmed:**
-- ✅ `claude` works when called directly (`claude --version` shows version 2.0.28 or similar)
+- ✅ `gemini` works when called directly (`gemini --version` shows version 2.0.28 or similar)
 - ✅ npm global path is in your PATH (`C:\Users\<username>\AppData\Roaming\npm`)
-- ✅ Package is installed correctly (`npm list -g @anthropic-ai/claude-code` shows it)
+- ✅ Package is installed correctly (`npm list -g @anthropic-ai/gemini-code` shows it)
 - ✅ Tried both CMD and PowerShell
 - ❌ Don't have administrator rights to modify system settings
 
-**This appears to be a Windows-specific issue with the `claude-agent-sdk` subprocess execution.**
+**This appears to be a Windows-specific issue with the `gemini-agent-sdk` subprocess execution.**
 
 The SDK may be using a process spawning method that doesn't properly resolve `.CMD` files on Windows in non-admin environments. This is an **upstream SDK issue**.
 
@@ -137,17 +137,17 @@ The SDK may be using a process spawning method that doesn't properly resolve `.C
 
 4. **Use your personal machine**: As a short-term workaround, run the tool on a machine where you have admin rights (as you mentioned trying on your Mac).
 
-5. **Report the SDK issue**: This is likely a bug in `claude-agent-sdk`. Consider opening an issue at the [Claude Agent SDK repository](https://github.com/anthropics/claude-agent-sdk) with your diagnostic information.
+5. **Report the SDK issue**: This is likely a bug in `gemini-agent-sdk`. Consider opening an issue at the [Gemini Agent SDK repository](https://github.com/anthropics/gemini-agent-sdk) with your diagnostic information.
 
 ### Additional Diagnostics
 If the problem persists, gather this information for further troubleshooting:
 
 ```cmd
-# Check Claude version
-claude --version
+# Check Gemini version
+gemini --version
 
 # Check npm global packages
-npm list -g @anthropic-ai/claude-code
+npm list -g @anthropic-ai/gemini-code
 
 # Check Node.js version
 node --version
@@ -162,7 +162,7 @@ npm config get prefix
 python --version
 
 # Try npx
-npx @anthropic-ai/claude-code --version
+npx @anthropic-ai/gemini-code --version
 
 # Check for multiple Node installations
 where node
@@ -331,10 +331,10 @@ chmod +r <file_path>  # Add read permission
 Ensure you have write permissions in the project directory:
 ```bash
 # Check permissions
-ls -ld /path/to/claude-scientific-writer
+ls -ld /path/to/gemini-scientific-writer
 
 # Fix if needed (Linux/macOS)
-chmod u+w /path/to/claude-scientific-writer
+chmod u+w /path/to/gemini-scientific-writer
 ```
 
 ### Problem: Data files not being processed
@@ -362,7 +362,7 @@ If you've tried the solutions above and still have issues:
    - Operating system and version
    - Python version (`python --version`)
    - Node.js version (`node --version`)
-   - Claude Code version (`claude --version`)
+   - Gemini CLI version (`gemini --version`)
    - Full error message and stack trace
    - Steps to reproduce the problem
 3. **Review the README**: [README.md](../README.md)

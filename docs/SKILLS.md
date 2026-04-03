@@ -7,7 +7,7 @@ This document provides an overview of all skills available in the Scientific Wri
 ## Writing Skills
 
 ### 1. Scientific Writing
-**Location**: `.claude/skills/scientific-writing/`
+**Location**: `.gemini/skills/scientific-writing/`
 
 **Capabilities**:
 - IMRaD structure guidance (Introduction, Methods, Results, and Discussion)
@@ -26,7 +26,7 @@ This document provides an overview of all skills available in the Scientific Wri
 ---
 
 ### 2. Literature Review
-**Location**: `.claude/skills/literature-review/`
+**Location**: `.gemini/skills/literature-review/`
 
 **Capabilities**:
 - Conducting systematic literature searches
@@ -50,7 +50,7 @@ This document provides an overview of all skills available in the Scientific Wri
 ---
 
 ### 3. Peer Review
-**Location**: `.claude/skills/peer-review/`
+**Location**: `.gemini/skills/peer-review/`
 
 **Capabilities**:
 - Identifying common issues in scientific manuscripts
@@ -66,7 +66,7 @@ This document provides an overview of all skills available in the Scientific Wri
 ---
 
 ### 4. Scholar Evaluation
-**Location**: `.claude/skills/scholar-evaluation/`
+**Location**: `.gemini/skills/scholar-evaluation/`
 
 **Capabilities**:
 - Systematic quantitative evaluation across 8 dimensions using ScholarEval framework
@@ -107,7 +107,7 @@ This document provides an overview of all skills available in the Scientific Wri
 ---
 
 ### 5. Research Grants
-**Location**: `.claude/skills/research-grants/`
+**Location**: `.gemini/skills/research-grants/`
 
 **Capabilities**:
 - Writing competitive research proposals for NSF, NIH, DOE, and DARPA
@@ -159,7 +159,7 @@ This document provides an overview of all skills available in the Scientific Wri
 ---
 
 ### 6. Clinical Reports
-**Location**: `.claude/skills/clinical-reports/`
+**Location**: `.gemini/skills/clinical-reports/`
 
 **Capabilities**:
 - Writing clinical case reports following CARE (CAse REport) guidelines for journal publication
@@ -242,40 +242,40 @@ This document provides an overview of all skills available in the Scientific Wri
 ```
 > Create a clinical case report for a patient with unusual presentation of acute appendicitis
 ```
-Claude will use the clinical-reports skill to create a CARE-compliant case report with proper de-identification.
+Gemini will use the clinical-reports skill to create a CARE-compliant case report with proper de-identification.
 
 ### Generating Diagnostic Reports
 ```
 > Generate a radiology report template for chest CT scan
 > Create a pathology report for breast biopsy specimen
 ```
-Claude will use structured reporting templates (ACR, CAP) with appropriate medical terminology.
+Gemini will use structured reporting templates (ACR, CAP) with appropriate medical terminology.
 
 ### Clinical Trial Documentation
 ```
 > Write an SAE report for serious adverse event in phase 3 trial
 > Create a clinical study report outline following ICH-E3
 ```
-Claude will ensure regulatory compliance and proper causality assessment.
+Gemini will ensure regulatory compliance and proper causality assessment.
 
 ### Patient Documentation
 ```
 > Create a SOAP note for follow-up visit
 > Generate a discharge summary for heart failure patient
 ```
-Claude will use standard clinical documentation formats with billing support.
+Gemini will use standard clinical documentation formats with billing support.
 
 ### Validation and Compliance
 ```
 > Check this case report for HIPAA identifiers
 > Validate clinical trial report against ICH-E3 structure
 ```
-Claude will use validation scripts to ensure compliance and quality.
+Gemini will use validation scripts to ensure compliance and quality.
 
 ---
 
 ### 7. Clinical Decision Support
-**Location**: `.claude/skills/clinical-decision-support/`
+**Location**: `.gemini/skills/clinical-decision-support/`
 
 **Capabilities**:
 - Generate professional clinical decision support (CDS) documents for medical professionals
@@ -351,7 +351,7 @@ Claude will use validation scripts to ensure compliance and quality.
 ```
 > Create a treatment plan for a 55-year-old patient with newly diagnosed type 2 diabetes and hypertension
 ```
-Claude will generate a personalized treatment protocol with monitoring and follow-up.
+Gemini will generate a personalized treatment protocol with monitoring and follow-up.
 
 ### Patient Cohort Analysis
 ```
@@ -359,7 +359,7 @@ Claude will generate a personalized treatment protocol with monitoring and follo
 
 > Generate cohort analysis for 30 GBM patients classified into mesenchymal-immune-active and proneural molecular subtypes with treatment outcomes
 ```
-Claude will create comprehensive cohort reports with biomarker profiles, outcome comparisons, statistical analysis, and clinical recommendations.
+Gemini will create comprehensive cohort reports with biomarker profiles, outcome comparisons, statistical analysis, and clinical recommendations.
 
 ### Treatment Recommendation Report
 ```
@@ -367,24 +367,24 @@ Claude will create comprehensive cohort reports with biomarker profiles, outcome
 
 > Generate treatment algorithm for heart failure management based on NYHA class and ejection fraction with GDMT protocols
 ```
-Claude will develop recommendation reports with GRADE-graded options, decision algorithms, and monitoring protocols.
+Gemini will develop recommendation reports with GRADE-graded options, decision algorithms, and monitoring protocols.
 
 ### Biomarker Report
 ```
 > Create a genomic profiling report for NSCLC patient with EGFR L858R mutation including FDA-approved therapies and clinical trial matching
 ```
-Claude will generate biomarker reports with tier-based actionability and personalized treatment recommendations.
+Gemini will generate biomarker reports with tier-based actionability and personalized treatment recommendations.
 
 ### Validation
 ```
 > Validate this cohort analysis document for evidence citations and statistical reporting completeness
 ```
-Claude will use validation scripts to check quality and compliance.
+Gemini will use validation scripts to check quality and compliance.
 
 ---
 
 ### 8. LaTeX Research Posters (DEFAULT)
-**Location**: `.claude/skills/latex-posters/`
+**Location**: `.gemini/skills/latex-posters/`
 
 **⚠️ This is the DEFAULT skill for all poster requests.** Use this unless user explicitly requests PPTX/PowerPoint format.
 
@@ -426,12 +426,12 @@ Claude will use validation scripts to check quality and compliance.
 - Color contrast and accessibility verification
 - Common issues troubleshooting guide
 
-**For PPTX/PowerPoint posters**: Use `pptx-posters` skill ONLY when user explicitly requests PPTX format. Located at `.claude/skills/pptx-posters/`.
+**For PPTX/PowerPoint posters**: Use `pptx-posters` skill ONLY when user explicitly requests PPTX format. Located at `.gemini/skills/pptx-posters/`.
 
 ---
 
 ### 9. Scientific Slides and Presentations
-**Location**: `.claude/skills/scientific-slides/`
+**Location**: `.gemini/skills/scientific-slides/`
 
 **Capabilities**:
 - Create stunning PDF slide decks using Nano Banana Pro AI
@@ -486,31 +486,31 @@ Claude will use validation scripts to check quality and compliance.
 ```
 > Create a 15-minute conference presentation on my machine learning research
 ```
-Claude will use research-lookup to gather citations, structure the talk, and generate stunning PDF slides using Nano Banana Pro AI.
+Gemini will use research-lookup to gather citations, structure the talk, and generate stunning PDF slides using Nano Banana Pro AI.
 
 ### Seminar Presentation
 ```
 > Help me build a 45-minute seminar on CRISPR gene editing with comprehensive methods
 ```
-Claude will structure a detailed academic seminar with proper citations and timing guidance.
+Gemini will structure a detailed academic seminar with proper citations and timing guidance.
 
 ### Thesis Defense
 ```
 > Create slides for my dissertation defense covering three studies
 ```
-Claude will structure a comprehensive defense presentation following academic standards.
+Gemini will structure a comprehensive defense presentation following academic standards.
 
 ### Visual Validation
 ```
 > Convert my presentation to images and review for layout issues
 ```
-Claude will use scripts to convert PDF to images and systematically inspect for text overflow, overlap, and design issues.
+Gemini will use scripts to convert PDF to images and systematically inspect for text overflow, overlap, and design issues.
 
 ### Timing Check
 ```
 > Validate my 20-slide presentation for a 15-minute talk
 ```
-Claude will check if slide count is appropriate and provide timing recommendations.
+Gemini will check if slide count is appropriate and provide timing recommendations.
 
 **Key Principles**:
 - **Structure**: Spend 40-50% of time on results, follow clear story arc
@@ -522,7 +522,7 @@ Claude will check if slide count is appropriate and provide timing recommendatio
 ---
 
 ### 10. Scientific Schematics and Diagrams
-**Location**: `.claude/skills/scientific-schematics/`
+**Location**: `.gemini/skills/scientific-schematics/`
 
 **Capabilities**:
 - Create methodology flowcharts (CONSORT diagrams for clinical trials)
@@ -573,7 +573,7 @@ Claude will check if slide count is appropriate and provide timing recommendatio
 ---
 
 ### 11. Market Research Reports
-**Location**: `.claude/skills/market-research-reports/`
+**Location**: `.gemini/skills/market-research-reports/`
 
 **Capabilities**:
 - Generate comprehensive market research reports (50+ pages) in consulting-firm style
@@ -629,26 +629,26 @@ Claude will check if slide count is appropriate and provide timing recommendatio
 ```
 > Create a comprehensive market research report on the Electric Vehicle Charging Infrastructure market
 ```
-Claude will use the market-research-reports skill to create a 50+ page professional report with extensive visuals.
+Gemini will use the market-research-reports skill to create a 50+ page professional report with extensive visuals.
 
 ### Market Sizing Analysis
 ```
 > Analyze the AI in Healthcare market with TAM/SAM/SOM breakdown and 10-year projections
 ```
-Claude will provide comprehensive market sizing with growth trajectory charts and regional breakdowns.
+Gemini will provide comprehensive market sizing with growth trajectory charts and regional breakdowns.
 
 ### Competitive Landscape Report
 ```
 > Create a competitive landscape analysis for the Cloud Computing market including Porter's Five Forces and positioning matrix
 ```
-Claude will generate competitive analysis with strategic frameworks and visualizations.
+Gemini will generate competitive analysis with strategic frameworks and visualizations.
 
 ---
 
 ## Document Manipulation Skills
 
 ### 12. MarkItDown - Universal File to Markdown Converter
-**Location**: `.claude/skills/markitdown/`
+**Location**: `.gemini/skills/markitdown/`
 
 **Capabilities**:
 - Convert 15+ file formats to Markdown (PDF, DOCX, PPTX, XLSX, images, audio, etc.)
@@ -685,7 +685,7 @@ Claude will generate competitive analysis with strategic frameworks and visualiz
 ---
 
 ### 13. DOCX (Word Documents)
-**Location**: `.claude/skills/document-skills/docx/`
+**Location**: `.gemini/skills/document-skills/docx/`
 
 **Capabilities**:
 - Create and edit Word documents programmatically
@@ -706,7 +706,7 @@ Claude will generate competitive analysis with strategic frameworks and visualiz
 ---
 
 ### 14. PDF Documents
-**Location**: `.claude/skills/document-skills/pdf/`
+**Location**: `.gemini/skills/document-skills/pdf/`
 
 **Capabilities**:
 - Extract text and metadata from PDFs
@@ -729,7 +729,7 @@ Claude will generate competitive analysis with strategic frameworks and visualiz
 ---
 
 ### 15. PPTX (PowerPoint Presentations)
-**Location**: `.claude/skills/document-skills/pptx/`
+**Location**: `.gemini/skills/document-skills/pptx/`
 
 **Capabilities**:
 - Create and modify PowerPoint presentations
@@ -752,7 +752,7 @@ Claude will generate competitive analysis with strategic frameworks and visualiz
 ---
 
 ### 16. XLSX (Excel Spreadsheets)
-**Location**: `.claude/skills/document-skills/xlsx/`
+**Location**: `.gemini/skills/document-skills/xlsx/`
 
 **Capabilities**:
 - Read and write Excel files
@@ -767,16 +767,16 @@ Claude will generate competitive analysis with strategic frameworks and visualiz
 
 ## How Skills Are Used
 
-When you interact with the Scientific Writer CLI, Claude automatically:
+When you interact with the Scientific Writer CLI, Gemini automatically:
 
-1. **Detects relevant skills**: Based on your request, Claude identifies which skills to use
+1. **Detects relevant skills**: Based on your request, Gemini identifies which skills to use
 2. **Loads resources**: Accesses reference materials, scripts, and templates
 3. **Applies best practices**: Follows the guidelines and standards in each skill
 4. **Executes tools**: Uses scripts when needed for document manipulation or data processing
 
 ## Skill Integration
 
-All skills are loaded from the `.claude/skills/` directory and are automatically available when you run the CLI. You don't need to manually select or activate them - Claude will use the appropriate skills based on your requests.
+All skills are loaded from the `.gemini/skills/` directory and are automatically available when you run the CLI. You don't need to manually select or activate them - Gemini will use the appropriate skills based on your requests.
 
 ## Example Usage
 
@@ -784,87 +784,87 @@ All skills are loaded from the `.claude/skills/` directory and are automatically
 ```
 > Help me structure a methods section for a randomized controlled trial
 ```
-Claude will use the scientific-writing skill to provide IMRaD-compliant guidance.
+Gemini will use the scientific-writing skill to provide IMRaD-compliant guidance.
 
 ### Using Literature Review Skill
 ```
 > Create a literature review on CRISPR gene editing in agriculture
 ```
-Claude will use literature-review skill to structure a comprehensive review.
+Gemini will use literature-review skill to structure a comprehensive review.
 
 ### Using Document Skills
 ```
 > Extract the data from Table 1 in results.pdf and create a summary
 ```
-Claude will use the PDF skill to extract data and potentially the XLSX skill to organize it.
+Gemini will use the PDF skill to extract data and potentially the XLSX skill to organize it.
 
 ### Using MarkItDown Skill
 ```
 > Convert all PDFs in the literature folder to Markdown
 ```
-Claude will use the markitdown skill to batch convert files.
+Gemini will use the markitdown skill to batch convert files.
 
 ```
 > Convert this PowerPoint presentation to Markdown with AI-generated descriptions
 ```
-Claude will use markitdown with AI enhancement for detailed image descriptions.
+Gemini will use markitdown with AI enhancement for detailed image descriptions.
 
 ### Using Peer Review Skill
 ```
 > Review my discussion section for logical flow and adherence to reporting standards
 ```
-Claude will use the peer-review skill to provide constructive feedback.
+Gemini will use the peer-review skill to provide constructive feedback.
 
 ### Using Scholar Evaluation Skill
 ```
 > Evaluate this paper using the ScholarEval framework
 ```
-Claude will use the scholar-evaluation skill to provide systematic quantitative evaluation across 8 dimensions.
+Gemini will use the scholar-evaluation skill to provide systematic quantitative evaluation across 8 dimensions.
 
 ```
 > Assess publication readiness for Nature Machine Intelligence
 ```
-Claude will evaluate the paper and provide scores and recommendations for submission readiness.
+Gemini will evaluate the paper and provide scores and recommendations for submission readiness.
 
 ### Using Research Grants Skill
 ```
 > Help me write an NSF proposal for my computational neuroscience research
 ```
-Claude will use the research-grants skill to provide NSF-specific guidance.
+Gemini will use the research-grants skill to provide NSF-specific guidance.
 
 ```
 > I need to draft NIH Specific Aims for my cancer immunotherapy R01
 ```
-Claude will help structure your 1-page specific aims using NIH best practices.
+Gemini will help structure your 1-page specific aims using NIH best practices.
 
 ```
 > What should I include in broader impacts for an NSF Materials Research proposal?
 ```
-Claude will provide substantive broader impacts strategies aligned with NSF criteria.
+Gemini will provide substantive broader impacts strategies aligned with NSF criteria.
 
 ### Using Scientific Schematics Skill
 ```
 > Create a CONSORT flowchart for my clinical trial showing participant flow from screening (n=500) through randomization to final analysis
 ```
-Claude will generate a methodology flowchart following CONSORT guidelines.
+Gemini will generate a methodology flowchart following CONSORT guidelines.
 
 ```
 > Generate a circuit diagram for an RC low-pass filter
 ```
-Claude will create an electrical circuit schematic using CircuitikZ or Schemdraw.
+Gemini will create an electrical circuit schematic using CircuitikZ or Schemdraw.
 
 ```
 > Create a biological pathway diagram showing the MAPK signaling cascade from receptor to gene expression
 ```
-Claude will visualize the signaling pathway with properly styled proteins and activation arrows.
+Gemini will visualize the signaling pathway with properly styled proteins and activation arrows.
 
 ```
 > Design a block diagram showing the architecture of my data acquisition system with sensor, ADC, microcontroller, and wireless transmission
 ```
-Claude will create a system architecture diagram with labeled components and data flow.
+Gemini will create a system architecture diagram with labeled components and data flow.
 
 ### 11. Venue Templates
-**Location**: `.claude/skills/venue-templates/`
+**Location**: `.gemini/skills/venue-templates/`
 
 **Capabilities**:
 - Query LaTeX templates for 50+ major journals and conferences
@@ -910,31 +910,31 @@ Claude will create a system architecture diagram with labeled components and dat
 ```
 > I need to submit to Nature
 ```
-Claude will provide the Nature article template and formatting requirements.
+Gemini will provide the Nature article template and formatting requirements.
 
 ### Get Conference Paper Template
 ```
 > Show me the NeurIPS paper template
 ```
-Claude will provide the NeurIPS conference paper template with anonymization guidelines.
+Gemini will provide the NeurIPS conference paper template with anonymization guidelines.
 
 ### Grant Proposal Template
 ```
 > I need an NSF proposal template
 ```
-Claude will provide the NSF proposal template with all required sections and formatting.
+Gemini will provide the NSF proposal template with all required sections and formatting.
 
 ### Conference Poster
 ```
 > Create a research poster for ISMB conference
 ```
-Claude will provide poster template and size specifications for the conference.
+Gemini will provide poster template and size specifications for the conference.
 
 ### Format Validation
 ```
 > Check if my paper meets Nature's requirements
 ```
-Claude can guide you through using the validation script to check formatting compliance.
+Gemini can guide you through using the validation script to check formatting compliance.
 
 ---
 
@@ -942,7 +942,7 @@ Claude can guide you through using the validation script to check formatting com
 
 To add your own skills:
 
-1. Create a new directory in `.claude/skills/`
+1. Create a new directory in `.gemini/skills/`
 2. Add a `SKILL.md` file with your skill definition
 3. Optionally add `references/`, `scripts/`, and `assets/` subdirectories
 4. Restart the CLI

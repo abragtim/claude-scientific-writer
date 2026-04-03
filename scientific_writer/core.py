@@ -11,21 +11,21 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def setup_claude_skills(package_dir: Path, work_dir: Path) -> None:
+def setup_gemini_skills(package_dir: Path, work_dir: Path) -> None:
     """
-    Set up Claude skills and WRITER.md by copying .claude/ from package to working directory.
+    Set up Gemini skills and WRITER.md by copying .gemini/ from package to working directory.
     
     Args:
-        package_dir: Package installation directory containing .claude/
-        work_dir: User's working directory where .claude/ should be copied
+        package_dir: Package installation directory containing .gemini/
+        work_dir: User's working directory where .gemini/ should be copied
     """
-    source_claude = package_dir / ".claude"
-    dest_claude = work_dir / ".claude"
+    source_gemini = package_dir / ".gemini"
+    dest_gemini = work_dir / ".gemini"
     
-    # Copy .claude directory (which includes skills/ and WRITER.md) if source exists and destination doesn't
-    if source_claude.exists() and not dest_claude.exists():
+    # Copy .gemini directory (which includes skills/ and WRITER.md) if source exists and destination doesn't
+    if source_gemini.exists() and not dest_gemini.exists():
         try:
-            shutil.copytree(source_claude, dest_claude)
+            shutil.copytree(source_gemini, dest_gemini)
             # Note: No print statements - API should be silent, progress comes via ProgressUpdate
         except Exception as e:
             pass  # Silent failure - API users can check for skills availability if needed
@@ -59,15 +59,15 @@ def get_api_key(api_key: Optional[str] = None) -> str:
 
 def load_system_instructions(work_dir: Path) -> str:
     """
-    Load system instructions from .claude/WRITER.md in the working directory.
+    Load system instructions from .gemini/WRITER.md in the working directory.
     
     Args:
-        work_dir: Working directory containing .claude/WRITER.md.
+        work_dir: Working directory containing .gemini/WRITER.md.
         
     Returns:
         System instructions string.
     """
-    instructions_file = work_dir / ".claude" / "WRITER.md"
+    instructions_file = work_dir / ".gemini" / "WRITER.md"
     
     if instructions_file.exists():
         with open(instructions_file, 'r', encoding='utf-8') as f:

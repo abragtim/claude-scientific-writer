@@ -8,8 +8,8 @@ from typing import Optional, List, Dict, Any, AsyncGenerator, Union, Literal
 from datetime import datetime
 from dotenv import load_dotenv
 
-from claude_agent_sdk import query as claude_query, ClaudeAgentOptions
-from claude_agent_sdk.types import HookMatcher, StopHookInput, HookContext
+from gemini_agent_sdk import query as gemini_query, GeminiAgentOptions
+from gemini_agent_sdk.types import HookMatcher, StopHookInput, HookContext
 
 from .core import (
     get_api_key,
@@ -18,7 +18,7 @@ from .core import (
     get_data_files,
     process_data_files,
     create_data_context_message,
-    setup_claude_skills,
+    setup_gemini_skills,
 )
 from .models import ProgressUpdate, TextUpdate, PaperResult, PaperMetadata, PaperFiles, TokenUsage
 from .utils import (
@@ -31,9 +31,9 @@ from .utils import (
 
 # Model mapping for effort levels
 EFFORT_LEVEL_MODELS = {
-    "low": "claude-haiku-4-5",
-    "medium": "claude-sonnet-4-6",
-    "high": "claude-sonnet-4-6",
+    "low": "gemini-haiku-4-5",
+    "medium": "gemini-sonnet-4-6",
+    "high": "gemini-sonnet-4-6",
 }
 
 
@@ -89,11 +89,11 @@ async def generate_paper(
                "Generate conference slides on AI", "Create a research poster")
         output_dir: Optional custom output directory (defaults to cwd/writing_outputs)
         api_key: Optional Anthropic API key (defaults to ANTHROPIC_API_KEY env var)
-        model: Optional explicit Claude model to use. If provided, overrides effort_level.
+        model: Optional explicit Gemini model to use. If provided, overrides effort_level.
         effort_level: Effort level that determines the model to use (default: "medium"):
-            - "low": Uses Claude Haiku 4.5 (fastest, most economical)
-            - "medium": Uses Claude Sonnet 4.5 (balanced) [default]
-            - "high": Uses Claude Opus 4.6 (most capable)
+            - "low": Uses Gemini Haiku 4.5 (fastest, most economical)
+            - "medium": Uses Gemini Sonnet 4.5 (balanced) [default]
+            - "high": Uses Gemini Opus 4.6 (most capable)
         data_files: Optional list of data file paths to include
         cwd: Optional working directory (defaults to package parent directory)
         track_token_usage: If True, track and return token usage in the final result
@@ -149,8 +149,8 @@ async def generate_paper(
     # Get package directory for copying skills to working directory
     package_dir = Path(__file__).parent.absolute()  # scientific_writer/ directory
     
-    # Set up Claude skills in the working directory (includes WRITER.md)
-    setup_claude_skills(package_dir, work_dir)
+    # Set up Gemini skills in the working directory (includes WRITER.md)
+    setup_gemini_skills(package_dir, work_dir)
     
     # Ensure output folder exists in user's directory
     output_folder = ensure_output_folder(work_dir, output_dir)
@@ -161,7 +161,7 @@ async def generate_paper(
         stage="initialization",
     ).to_dict()
     
-    # Load system instructions from .claude/WRITER.md in working directory
+    # Load system instructions from .gemini/WRITER.md in working directory
     system_instructions = load_system_instructions(work_dir)
     
     # Add conversation continuity instruction
@@ -197,13 +197,13 @@ IMPORTANT - CONVERSATION CONTINUITY:
     if env_auto_continue in ("false", "0", "no"):
         auto_continue = False
     
-    # Configure Claude agent options with stop hook for completion checking
-    options = ClaudeAgentOptions(
+    # Configure Gemini agent options with stop hook for completion checking
+    options = GeminiAgentOptions(
         system_prompt=system_instructions,
         model=model,
         allowed_tools=["Read", "Write", "Edit", "Bash", "WebSearch", "research-lookup"],
         permission_mode="bypassPermissions",
-        setting_sources=["project"],  # Load skills from project .claude directory
+        setting_sources=["project"],  # Load skills from project .gemini directory
         cwd=str(work_dir),  # User's working directory
         max_turns=500,  # Allow many turns for long document generation
         hooks={
@@ -238,7 +238,7 @@ IMPORTANT - CONVERSATION CONTINUITY:
     # Execute query
     try:
         accumulated_text = ""
-        async for message in claude_query(prompt=query, options=options):
+        async for message in gemini_query(prompt=query, options=options):
             # Track token usage if enabled
             if track_token_usage and hasattr(message, "usage") and message.usage:
                 usage = message.usage

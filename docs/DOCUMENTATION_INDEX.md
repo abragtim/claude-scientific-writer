@@ -36,7 +36,7 @@
 
 | Document | Content | Audience |
 |----------|---------|----------|
-| [CLAUDE.md](../CLAUDE.md) | System instructions for the AI agent | Advanced users, developers |
+| [GEMINI.md](../GEMINI.md) | System instructions for the AI agent | Advanced users, developers |
 
 ---
 
@@ -44,8 +44,8 @@
 
 ### I Want to Install and Use Scientific Writer
 
-**As a Claude Code Plugin (Recommended):**
-1. Start: [Plugin Installation Guide](../README.md#-use-as-a-claude-code-plugin-recommended)
+**As a Gemini CLI Plugin (Recommended):**
+1. Start: [Plugin Installation Guide](../README.md#-use-as-a-gemini-code-plugin-recommended)
 2. Reference: [Skills Overview](SKILLS.md)
 3. Troubleshoot: [Plugin Issues](TROUBLESHOOTING.md)
 
@@ -68,7 +68,7 @@
 | **Research Posters** | [Poster Commands](../README.md#common-commands) | [Skills: Posters](SKILLS.md#8-latex-research-posters) | [Features: Posters](FEATURES.md#research-posters) |
 | **Clinical Reports** | [Clinical Commands](../README.md#common-commands) | [Skills: Clinical](SKILLS.md#6-clinical-reports) | [Features: Clinical](FEATURES.md#document-generation) |
 | **Literature Reviews** | [Review Commands](../README.md#common-commands) | [Skills: Literature](SKILLS.md#2-literature-review) | [Features: Reviews](FEATURES.md#literature-reviews) |
-| **Presentations** | [Slides Examples](../README.md#common-commands) | [Skills: Slides](SKILLS.md#9-scientific-slides-and-presentations) | [CLAUDE.md: Presentations](../CLAUDE.md) |
+| **Presentations** | [Slides Examples](../README.md#common-commands) | [Skills: Slides](SKILLS.md#9-scientific-slides-and-presentations) | [GEMINI.md: Presentations](../GEMINI.md) |
 
 ### I Want to Use Specific Features
 
@@ -101,10 +101,10 @@
 
 ## 🔗 External Resources
 
-- **GitHub Repository**: https://github.com/K-Dense-AI/claude-scientific-writer
+- **GitHub Repository**: https://github.com/K-Dense-AI/gemini-scientific-writer
 - **PyPI Package**: https://pypi.org/project/scientific-writer/
 - **Community Slack**: [Join K-Dense Community](https://join.slack.com/t/k-densecommunity/shared_invite/zt-3iajtyls1-EwmkwIZk0g_o74311Tkf5g)
-- **Issue Tracker**: https://github.com/K-Dense-AI/claude-scientific-writer/issues
+- **Issue Tracker**: https://github.com/K-Dense-AI/gemini-scientific-writer/issues
 
 ---
 
@@ -142,7 +142,7 @@
 ### Beginner Path (First-Time Users)
 
 1. Read: [Main README](../README.md) (5 min)
-2. Install: Follow [Plugin Installation](../README.md#-use-as-a-claude-code-plugin-recommended) (2 min)
+2. Install: Follow [Plugin Installation](../README.md#-use-as-a-gemini-code-plugin-recommended) (2 min)
 3. Try: Create your first document (10 min)
 4. Explore: Browse [Skills Overview](SKILLS.md) (10 min)
 
@@ -156,7 +156,7 @@
 ### Advanced Path (Power Users)
 
 1. API: Read [API Reference](API.md)
-2. Customize: Understand [System Instructions](../CLAUDE.md)
+2. Customize: Understand [System Instructions](../GEMINI.md)
 3. Extend: Learn [Plugin Development](DEVELOPMENT.md)
 4. Contribute: Follow [Contributing Guide](DEVELOPMENT.md#contributing)
 
@@ -167,10 +167,10 @@
 ### File Organization
 
 ```
-claude-scientific-writer/
+gemini-scientific-writer/
 ├── README.md                    # Main entry point
 ├── CHANGELOG.md                 # Version history
-├── CLAUDE.md                    # System instructions
+├── GEMINI.md                    # System instructions
 ├── TESTING_INSTRUCTIONS.md      # Plugin testing
 ├── example_api_usage.py         # API examples
 ├── docs/
@@ -233,7 +233,7 @@ claude-scientific-writer/
 Found an issue with the documentation? Please:
 
 1. **Check**: [Troubleshooting Guide](TROUBLESHOOTING.md)
-2. **Search**: [GitHub Issues](https://github.com/K-Dense-AI/claude-scientific-writer/issues)
+2. **Search**: [GitHub Issues](https://github.com/K-Dense-AI/gemini-scientific-writer/issues)
 3. **Report**: Create a new issue with the "documentation" label
 4. **Discuss**: Join our [Slack Community](https://join.slack.com/t/k-densecommunity/shared_invite/zt-3iajtyls1-EwmkwIZk0g_o74311Tkf5g)
 

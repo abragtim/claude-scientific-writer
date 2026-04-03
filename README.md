@@ -1,4 +1,4 @@
-# Claude Scientific Writer
+# Gemini Scientific Writer
 
 [![PyPI version](https://img.shields.io/pypi/v/scientific-writer.svg)](https://pypi.org/project/scientific-writer/)
 [![Total Downloads](https://static.pepy.tech/badge/scientific-writer)](https://pepy.tech/project/scientific-writer)
@@ -8,7 +8,7 @@
 
 **A deep research and writing tool** that combines the power of AI-driven deep research with well-formatted written outputs. Generate publication-ready scientific papers, reports, posters, grant proposals, literature reviews, and more academic documents—all backed by real-time literature search and verified citations.
 
-Scientific Writer performs comprehensive research before writing, ensuring every claim is supported by real, verifiable sources. Features include real-time research lookup via Perplexity Sonar Pro Search, intelligent paper detection, comprehensive document conversion, and AI-powered diagram generation with Nano Banana Pro. You have the option of using it as a claude code plugin, python package or a native CLI
+Scientific Writer performs comprehensive research before writing, ensuring every claim is supported by real, verifiable sources. Features include real-time research lookup via Perplexity Sonar Pro Search, intelligent paper detection, comprehensive document conversion, and AI-powered diagram generation with Nano Banana Pro. You have the option of using it as a Gemini CLI plugin, python package or a native CLI
 
 ## Quick Start
 
@@ -18,8 +18,8 @@ Scientific Writer performs comprehensive research before writing, ensuring every
 
 ### Installation Options
 
-#### Option 1: Claude Code Plugin (Recommended) ⭐
-The easiest way to use Scientific Writer is as a Claude Code plugin. See the [Plugin Installation](#-use-as-a-claude-code-plugin-recommended) section above.
+#### Option 1: Gemini CLI Plugin (Recommended) ⭐
+The easiest way to use Scientific Writer is as a Gemini CLI plugin. See the [Plugin Installation](#-use-as-a-gemini-code-plugin-recommended) section above.
 
 #### Option 2: Install from PyPI (CLI/API Usage)
 ```bash
@@ -28,8 +28,8 @@ pip install scientific-writer
 
 #### Option 3: Install from source with uv
 ```bash
-git clone https://github.com/K-Dense-AI/claude-scientific-writer.git
-cd claude-scientific-writer
+git clone https://github.com/K-Dense-AI/gemini-scientific-writer.git
+cd gemini-scientific-writer
 uv sync
 ```
 
@@ -45,7 +45,7 @@ export ANTHROPIC_API_KEY='your_key'
 ### Usage Options
 
 #### Use as Plugin (Recommended)
-After installing the plugin and running `/scientific-writer:init`, simply ask Claude:
+After installing the plugin and running `/scientific-writer:init`, simply ask Gemini:
 ```bash
 > Create a Nature paper on CRISPR gene editing. Present experimental_data.csv 
   (efficiency across 5 cell lines), include Western_blot.png and flow_cytometry.png 
@@ -100,29 +100,27 @@ async def main():
 asyncio.run(main())
 ```
 
-## 🎯 Use as a Claude Code Plugin (Recommended)
+## 🎯 Use as a Gemini CLI Plugin (Recommended)
 
-**Scientific Writer works best as a Claude Code (Cursor) plugin**, providing seamless access to all scientific writing capabilities directly in your IDE. No CLI required!
+**Scientific Writer works best as a Gemini CLI (Cursor) plugin**, providing seamless access to all scientific writing capabilities directly in your IDE. No CLI required!
 
-### Quick Start - Plugin Installation
+### Quick Start - Extension Installation
 
-1. **Add the plugin marketplace** in Claude Code:
+1. **Install the extension**:
    ```bash
-   /plugin marketplace add https://github.com/K-Dense-AI/claude-scientific-writer
+   gemini extensions install https://github.com/K-Dense-AI/gemini-scientific-writer
    ```
 
-2. **Install the plugin**:
+2. **Reload skills**:
    ```bash
-   /plugin install claude-scientific-writer
+   /skills reload
    ```
-
-3. **Restart Claude Code** when prompted.
 
 4. **Initialize in your project**:
    ```bash
    /scientific-writer:init
    ```
-   This creates a `CLAUDE.md` file with comprehensive scientific writing instructions and makes all 19+ skills available.
+   This creates a `GEMINI.md` file with comprehensive scientific writing instructions and makes all 19+ skills available.
 
 5. **Start using immediately**:
    ```bash
@@ -151,7 +149,7 @@ asyncio.run(main())
 
 ### Why Use the Plugin?
 
-- ✅ **No CLI Required** - Everything works directly in Claude Code
+- ✅ **No CLI Required** - Everything works directly in Gemini CLI
 - ✅ **Instant Access** - All 19+ skills available immediately
 - ✅ **IDE Integration** - Files created and edited in your project
 - ✅ **Context Aware** - Skills understand your project structure
@@ -279,7 +277,7 @@ asyncio.run(main())
 > What are the current success rates for CAR-T therapy in B-cell lymphoma? Compare with our clinical_trial_outcomes.csv (n=45 patients, 62% complete response). Include our response_timeline.png and cytokine_profiles.csv. How do our results compare to published JULIET and ZUMA trials?
 
 # Literature search with data-driven focus
-> Find 10 recent papers on transformer efficiency optimizations (2023-2024). Compare their reported FLOPS and memory usage with our benchmark_results.csv testing GPT-4, Claude, and Llama models. Include our latency_comparison.png and throughput_scaling.csv for context.
+> Find 10 recent papers on transformer efficiency optimizations (2023-2024). Compare their reported FLOPS and memory usage with our benchmark_results.csv testing GPT-4, Gemini, and Llama models. Include our latency_comparison.png and throughput_scaling.csv for context.
 
 # Meta-analysis with new data
 > Search for RCTs on metformin in aging (last 5 years). Compare published efficacy data with our mouse_longevity_study.csv (18% lifespan extension, n=120). Include our survival_curves.png, biomarker_changes.xlsx (AMPK, mTOR, NAD+ levels), and dose_response.png. How do our findings align with human trial outcomes?
@@ -303,11 +301,11 @@ asyncio.run(main())
 
 ```bash
 # 1. Drop all your research files in data/ folder
-cp experimental_data.csv ~/Documents/claude-scientific-writer/data/
-cp western_blot.png ~/Documents/claude-scientific-writer/data/
-cp flow_cytometry.png ~/Documents/claude-scientific-writer/data/
-cp statistical_summary.xlsx ~/Documents/claude-scientific-writer/data/
-cp methods_diagram.svg ~/Documents/claude-scientific-writer/data/
+cp experimental_data.csv ~/Documents/gemini-scientific-writer/data/
+cp western_blot.png ~/Documents/gemini-scientific-writer/data/
+cp flow_cytometry.png ~/Documents/gemini-scientific-writer/data/
+cp statistical_summary.xlsx ~/Documents/gemini-scientific-writer/data/
+cp methods_diagram.svg ~/Documents/gemini-scientific-writer/data/
 
 # 2. Files are automatically sorted by type:
 #    Images (png, jpg, svg, tif, pdf figures) → figures/
@@ -406,10 +404,10 @@ For developers working on the plugin or testing locally:
 1. **Create a test marketplace** in the parent directory:
    ```bash
    cd ..
-   mkdir -p test-marketplace/.claude-plugin
+   mkdir -p test-marketplace/.gemini-plugin
    ```
 
-2. **Create marketplace configuration** (`test-marketplace/.claude-plugin/marketplace.json`):
+2. **Create marketplace configuration** (`test-marketplace/.gemini-plugin/marketplace.json`):
    
    Copy the example from `test-marketplace-example.json` or create:
    
@@ -419,9 +417,9 @@ For developers working on the plugin or testing locally:
      "owner": { "name": "K-Dense" },
      "plugins": [
        {
-         "name": "claude-scientific-writer",
-         "source": "../claude-scientific-writer",
-         "description": "Scientific writing skills and CLAUDE.md initializer"
+         "name": "gemini-scientific-writer",
+         "source": "../gemini-scientific-writer",
+         "description": "Scientific writing skills and GEMINI.md initializer"
        }
      ]
    }
@@ -431,7 +429,7 @@ For developers working on the plugin or testing locally:
 
 ### Install and Test
 
-3. **Add the test marketplace** in Claude Code:
+3. **Add the test marketplace** in Gemini CLI:
    ```bash
    /plugin marketplace add ../test-marketplace
    ```
@@ -440,15 +438,15 @@ For developers working on the plugin or testing locally:
 
 4. **Install the plugin**:
    ```bash
-   /plugin install claude-scientific-writer@test-marketplace
+   /plugin install gemini-scientific-writer@test-marketplace
    ```
 
-5. **Restart Claude Code** when prompted.
+5. **Restart Gemini CLI** when prompted.
 
 6. **Test the plugin**:
    - Open any project directory
    - Run `/scientific-writer:init`
-   - Verify CLAUDE.md is created
+   - Verify GEMINI.md is created
    - Test skills: "What skills are available?"
    - Try creating a document: "Create a short scientific abstract on quantum computing"
 
@@ -456,8 +454,8 @@ For developers working on the plugin or testing locally:
 
 Your plugin should have this structure:
 ```
-claude-scientific-writer/
-├── .claude-plugin/
+gemini-scientific-writer/
+├── .gemini-plugin/
 │   └── plugin.json          # Plugin metadata
 ├── commands/
 │   └── scientific-writer-init.md  # /scientific-writer:init command
@@ -483,7 +481,7 @@ claude-scientific-writer/
 │   ├── treatment-plans/
 │   └── venue-templates/
 ├── templates/
-│   └── CLAUDE.scientific-writer.md  # CLAUDE.md template
+│   └── GEMINI.scientific-writer.md  # GEMINI.md template
 └── ... (existing Python package files)
 ```
 
@@ -491,7 +489,7 @@ claude-scientific-writer/
 
 - **Skills not showing**: Verify each `SKILL.md` has valid YAML frontmatter (name, description, allowed-tools)
 - **Command not working**: Check `commands/scientific-writer-init.md` exists and has proper frontmatter
-- **Template not found**: Ensure `templates/CLAUDE.scientific-writer.md` is present
+- **Template not found**: Ensure `templates/GEMINI.scientific-writer.md` is present
 - **Marketplace not loading**: Verify `marketplace.json` syntax and relative path to plugin
 
 ## 📄 Example Outputs
@@ -523,7 +521,7 @@ Want to see what Scientific Writer can create? Check out real examples in the [`
 - [💻 Development Guide](docs/DEVELOPMENT.md) - Contributing and development setup
 - [📦 Releasing Guide](docs/RELEASING.md) - Versioning and publishing
 - [📋 Release Notes](CHANGELOG.md) - Version history and updates
-- [🤖 System Instructions](CLAUDE.md) - Agent instructions (advanced)
+- [🤖 System Instructions](GEMINI.md) - Agent instructions (advanced)
 
 ## Versioning and Publishing (short)
 Use `uv` and the helper scripts:
@@ -557,8 +555,8 @@ We're excited to meet you! 🚀
 
 If you find this project helpful for your research or work, please consider giving it a star on GitHub! It helps others discover the tool and motivates continued development. Thank you! 🙏
 
-![GitHub stars](https://img.shields.io/github/stars/K-Dense-AI/claude-scientific-writer?style=social)
+![GitHub stars](https://img.shields.io/github/stars/K-Dense-AI/gemini-scientific-writer?style=social)
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=K-Dense-AI/claude-scientific-writer&type=Date)](https://star-history.com/#K-Dense-AI/claude-scientific-writer&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=K-Dense-AI/gemini-scientific-writer&type=Date)](https://star-history.com/#K-Dense-AI/gemini-scientific-writer&Date)
